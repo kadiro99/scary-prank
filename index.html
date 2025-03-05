@@ -9,3 +9,25 @@
     <h1>Gotcha! 😈</h1>
 </body>
 </html>
+<audio id="scary-sound" src="https://www.fesliyanstudios.com/play-mp3/4389" preload="auto"></audio>
+
+<script>
+  // كود يهز الشاشة
+  function shakeScreen() {
+    let intensity = 5;
+    let count = 0;
+    let interval = setInterval(() => {
+      let x = (Math.random() * intensity * 2) - intensity;
+      let y = (Math.random() * intensity * 2) - intensity;
+      document.body.style.transform = `translate(${x}px, ${y}px)`;
+      count++;
+      if (count > 20) clearInterval(interval);
+    }, 50);
+  }
+
+  // تشغيل الصوت بعد 3 ثواني
+  setTimeout(() => {
+    document.getElementById("scary-sound").play();
+    shakeScreen();
+  }, 3000);
+</script>
