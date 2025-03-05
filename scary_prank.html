@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scary Prank</title>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+            text-align: center;
+            font-size: 24px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Loading... Please wait!</h1>
+    <audio id="scarySound" src="https://www.fesliyanstudios.com/play-mp3/4382" preload="auto"></audio>
+    
+    <script>
+        setTimeout(() => {
+            document.body.innerHTML = "<h1>BOO! 😱</h1>";
+            document.body.style.backgroundImage = "url('https://i.imgur.com/Z9x8b.jpg')";
+            document.body.style.backgroundSize = "cover";
+            document.body.style.color = "white";
+
+            let audio = document.getElementById("scarySound");
+            audio.play();
+
+            function shakeScreen() {
+                let intensity = 10;
+                let x = (Math.random() * intensity * 2) - intensity;
+                let y = (Math.random() * intensity * 2) - intensity;
+                document.body.style.transform = `translate(${x}px, ${y}px)`;
+                setTimeout(shakeScreen, 50);
+            }
+            shakeScreen();
+        }, 3000);
+    </script>
+</body>
+</html>
